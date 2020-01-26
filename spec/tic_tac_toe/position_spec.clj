@@ -15,6 +15,33 @@
   )
   (context "win?"
     (it "should determine no win"
-      (should-not (win? init-position 'x))))
+      (should-not (win? init-position 'x)))
+    (it "should determine a win for x in first row"
+      (should (win? {:board '[x x x, - - -, - - -] :turn 'x} 'x)))
+    (it "should determine a win for x in first row"
+      (should (win? {:board '[- - -, x x x, - - -] :turn 'x} 'x)))
+    (it "should determine a win for x in first row"
+      (should (win? {:board '[- - -, - - -, x x x] :turn 'x} 'x)))
+    (it "should determine a win for o in first col"
+      (should (win? {:board '[o - -
+                              o - -
+                              o - -] :turn 'o} 'o)))
+    (it "should determine a win for o in second col"
+      (should (win? {:board '[- o -
+                              - o -
+                              - o -] :turn 'o} 'o)))
+    (it "should determine a win for o in third col"
+      (should (win? {:board '[- - o
+                              - - o
+                              - - o] :turn 'o} 'o)))
+    (it "should determine a win for o in major diagonal"
+      (should (win? {:board '[o - -
+                              - o -
+                              - - o] :turn 'o} 'o)))
+    (it "should determine a win for o in minor diagonal"
+      (should (win? {:board '[- - o
+                              - o -
+                              o - -] :turn 'o} 'o)))
+  )
 )
 (run-specs)
