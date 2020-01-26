@@ -5,6 +5,9 @@
 (describe "tic-tac-toe.position"
   (context "init-position"
     (it "should create a new position"
-     (should= {:board '[- - -, - - -, - - -] :turn 'x} init-position))))
-
+     (should= {:board '[- - -, - - -, - - -] :turn 'x} init-position)))
+  (context "move"
+    (it "should make a move"
+      (should= {:board '[x - -, - - -, - - -] :turn 'o} (move init-position 0))))
+)
 (run-specs)
