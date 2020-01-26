@@ -9,5 +9,9 @@
   (context "move"
     (it "should make a move"
       (should= {:board '[x - -, - - -, - - -] :turn 'o} (move init-position 0))))
+  (context "possible-moves"
+    (it "should list possible moves for a position"
+      (should= [2,3,6,7,8] (possible-moves {:board '[x x -, - o o, - - -]})))
+  )
 )
 (run-specs)
