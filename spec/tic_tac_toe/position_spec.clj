@@ -13,5 +13,8 @@
     (it "should list possible moves for a position"
       (should= [2,3,6,7,8] (possible-moves {:board '[x x -, - o o, - - -]})))
   )
+  (context "win?"
+    (it "should determine no win"
+      (should-not (win? init-position 'x))))
 )
 (run-specs)
