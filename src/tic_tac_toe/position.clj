@@ -11,10 +11,12 @@
 (defn win? [{:keys [board]} turn]
   (let [line-match? (fn [line] (every? #(= turn %) line))
         rows (partition dim board)]
-        (or
-          (some line-match? rows)
-          (some line-match? (apply map vector rows))
-          (line-match? (map #(nth board %) (range 0 size (inc dim))))
-          (line-match? (map #(nth board %) (range (dec dim) (dec size) (dec dim))))))
-)
+    (or
+     (some line-match? rows)
+     (some line-match? (apply map vector rows))
+     (line-match? (map #(nth board %) (range 0 size (inc dim))))
+     (line-match? (map #(nth board %) (range (dec dim) (dec size) (dec dim))))))
+  )
 
+(defn -main
+  (println "Hello, world!"))
